@@ -43,13 +43,27 @@
                         </li>
                         
                     </ul>
-                    <ul class="navbar-nav me-4" style="float: right;">
-                        <li class="nav-item" >
-                            <a class="nav-link btn btn-info  text-dark " style="background-color: lightblue;" asp-controller="Bank" asp-action="Loggin">Log-in</a>
+                    @if(Bank.LastBankLoggin==null)
+                    {
+                        <ul class="navbar-nav me-4" style="float: right;">
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-info  text-dark " style="background-color: lightblue;" asp-controller="Bank" asp-action="Loggin">Log-in</a>
 
-                        </li>
+                            </li>
 
-                    </ul>
+                        </ul>
+                    }
+                    else
+                    {
+                        <ul class="navbar-nav me-4" style="float: right;">
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-info  text-dark " style="background-color: lightblue;" asp-controller="Bank" asp-action="Loggout">Log-out</a>
+
+                            </li>
+
+                        </ul>
+                    }
+
                 </div>
             </div>
         </nav>

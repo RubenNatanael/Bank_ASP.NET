@@ -15,8 +15,12 @@ namespace BankProject.Controllers
 
         public IActionResult Index()
         {
-            IEnumerable<Bank> objBankyList  = _db.Banks;
-            return View(objBankyList);
+            if (Bank.Admin == true)
+            {
+                IEnumerable<Bank> objBankyList = _db.Banks;
+                return View(objBankyList);
+            }
+            return RedirectToAction("Index","Home");
         }
 
         //GET
@@ -167,6 +171,12 @@ namespace BankProject.Controllers
             return View();
 
         }
+
+        public IActionResult Loggout()
+        {
+            Bank.LastBankLoggin = null;
+            return RedirectToAction("Index","Home");
+        }
         public IActionResult About()
         {
             return View();
@@ -177,18 +187,25 @@ namespace BankProject.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult AddFounds(int Quantity)
+        public IActionResult AddFounds(int Quantity,int IdClient)
         {
-            if(Quantity > 0)
+            if(Bank.LastBankLoggin!=null)
             {
-                if (ModelState.IsValid)
+                if (Quantity > 0)
                 {
-                    Bank.LastBankLoggin.addFounds(Quantity,_db);
-                    return RedirectToAction("Index", "Home" );
+                    if (ModelState.IsValid)
+                    {
+                        Client? ClientId = _db.Clients.FirstOrDefault(x => x.Id == IdClient && x.Bank==Bank.LastBankLoggin.Name);
+                            if(ClientId!=null)
+                                ClientId.AddFounnds(Quantity,_db);
+                        Bank.LastBankLoggin.addFounds(Quantity, _db);
+                        return RedirectToAction("Index", "Home");
 
+                    }
                 }
+                else ModelState.AddModelError("Founds", "Introduce a numerical value between 1-10000");
             }
-            else ModelState.AddModelError("Founds", "Introduce a numerical value between 1-10000");
+            
             return View(Quantity);
             
         }

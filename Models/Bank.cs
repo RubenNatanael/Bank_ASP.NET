@@ -17,7 +17,7 @@ namespace BankProject.Models
 
         public DateTime DateTime { get; set; } = DateTime.Now;
 
-        public static Bank LastBankLoggin {  get; set; }
+        public static Bank? LastBankLoggin {  get; set; }
 
         public static bool Admin { get; set; }
 
