@@ -1,0 +1,60 @@
+﻿@model Client
+
+<h1>Add New Client</h1>
+    <br />
+        <form method="post" width=10px>
+            <div class="border p-3 mt-4">
+                <div class="row pb-2">
+                    <h2 class="text-primary">Add Client</h2>
+                    <hr />
+                </div>
+        
+                 <!-- <div asp-validation-summary="All"></div> -->
+                <div class="col-12">
+                    <div class="mb-3 mt-5">
+                        <div class="col-4">
+                            <label asp-for="Name">First Name</label>
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+
+                        </div>
+                        <div class="col-4">
+                            <label >Second Name</label>
+                            <input class="form-control" />
+                        </div>
+                        <div class="col-4">
+                            <label asp-for="Id">CNP</label>
+                            <input asp-for="Id" class="form-control" />
+                            <span asp-validation-for="Id" class="text-danger"></span>
+
+                        </div>
+                        <div class="col-4">
+                            <label >Email</label>
+                            <input class="form-control" />
+                        </div>
+                        <div class="col-4">
+                            <label asp-for="Founds">Founds in the Bank</label>
+                            <input asp-for="Founds" class="form-control" />
+                             <span asp-validation-for="Founds" class="text-danger"></span>
+
+                        </div>
+                        <div class="mt-4">
+                             <button type="submit" class="btn btn-primary" style="width:150px; height:60px">Add Client</button>
+                             <a asp-controller="Home" asp-action="Index" class="btn btn-secondary" style="width:150px">
+                             Back to home page
+                             </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </form>
+
+@section Scripts
+{
+    @{
+    <partial name="_ValidationScriptsPartial" />
+
+    }
+}

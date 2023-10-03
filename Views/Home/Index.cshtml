@@ -1,0 +1,140 @@
+﻿
+@{
+    ViewData["Title"] = "Home Page";
+}
+<partial name="_Notification" />
+
+@if (Bank.LastBankLoggin != null)
+{
+    <div >
+        <h2><i>Your founds are: </i>@Bank.LastBankLoggin._Founds lei</h2>
+    </div>
+    <br />
+    
+}
+
+
+<div class="text-center">
+    
+
+    @if (Bank.LastBankLoggin == null)
+    {
+        <h1 class="display-4">Welcome to the application Bank</h1>
+        <img src="~/Images/BankLogo.png" width="200" class="rounded-5" />
+        <div class="text-right">
+            <p style="color:GRAY; font-size:13px;"><i>Application exclusively for bank management.</i></p>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 mb-5 mt-5">
+                    <div class="w-100 row makeYourOwnDiv">
+                        <div class="col-4">
+                            <br />
+
+                            <img src="~/Images/AddBank.png" width="220" class="rounded-circle " />
+                            <br />
+                        </div>
+                        <div class="col-8 align-items-center">
+                            <div class="alig-middle makeYourOwnText">
+                                <h3 style="text-align:left;">Do you want to add your bank to the manage system?</h3>
+                                <p style="text-align:left">You can add Free your Bank Franchise Now!</p>
+                                <a class="btn btn-primary" style="float:left" asp-area="" asp-controller="Bank" asp-action="Create">Add Now!</a>
+                                <br />
+                                <br />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="container">
+            <div class="row">
+                <div class="col-12 mb-5 mt-5">
+                    <div class="w-100 row makeYourOwnDivCian rounded-3">
+                        <div class="col-4">
+                            <br />
+
+                            <img src="~/Images/BankManager.jfif"  height="200" class="rounded-3"  />
+                            <br />
+                        </div>
+                        <div class="col-8 align-items-center">
+                            <div class="alig-middle makeYourOwnText">
+                                <h3 style="text-align:left;">This is the Home page from where You can manage Your Bank</h3>
+                                <p style="text-align:left">Chose from below the desire action for your Bank</p>
+                                <br />
+                                <br />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+
+
+    <div class="row">
+        <div class="col-10">
+            <div class="row">
+                
+                @if (Bank.LastBankLoggin == null)
+                {
+                    
+                    <div class="col-2">
+                        <img src="~/Images/AddBank2.jpg" width="80" class="rounded-3" />
+                        <div class="row-cols-1">
+                            <a class="btn btn-success" style="float:left" asp-area="" asp-controller="Bank" asp-action="Create">Add Bank</a>
+                            <br />
+                        </div>
+                    </div>
+                }
+                
+                <div class="col-2">
+                    <img src="~/Images/AddBank2.jpg" width="80" class="rounded-3" />
+                    <div class="row-cols-1">
+                        <a class="btn btn-success" style="float:left" asp-area="" asp-controller="Bank" asp-action="Edit_I">Edit Bank</a>
+                        <br />
+                    </div>
+                </div>
+                @if(Bank.LastBankLoggin!=null)
+                {
+                    <div class="col-2">
+                        <img src="~/Images/AddFounds.png" width="80" class="rounded-3" />
+                        <div class="row-cols-1">
+                            <a class="btn btn-success" style="float:left" asp-area="" asp-controller="Bank" asp-action="AddFounds">Add founds</a>
+                            <br />
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <img src="~/Images/AddClient.jpg" width="80" class="rounded-3" />
+                        <div class="row-cols-1">
+                            <a class="btn btn-success" style="float:left" asp-area="" asp-controller="Client" asp-action="AddClient">Add Client</a>
+                            <br />
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="col-2">
+                        <img src="~/Images/Client.png" width="80" class="rounded-3" />
+                        <div class="row-cols-1">
+                            <a class="btn btn-success" style="float:left" asp-area="" asp-controller="Client" asp-action="ShowClients">List Clients</a>
+                            <br />
+                        </div>
+                    </div>
+                }
+                
+            </div>
+        </div>
+            
+    </div>
+    
+    
+
+
+</div>
+<br />
+<br />
+

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Bank>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<partial name="_Notification" />
+
+<h1>Index Bank</h1>
+
+
+@if (ViewData["Message"] != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            alert("@ViewData["Message"]");
+        @ViewData["Message"]=null;
+        };
+    </script>
+}
+
+<table class="Table table-bordered" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                Bank name
+
+            </th>
+            <th>
+                Found of the bank
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var obj in Model)
+        {
+            <tr>
+                <td>
+                    @obj.Name
+                </td>
+                <td>
+                    @obj._Founds
+                </td>
+                <td>
+                    <div class="w-75 btn-group" role="group">
+                        <a asp-controller="Bank" asp-action="Edit" asp-route-id="@obj.Id">Edit
+
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

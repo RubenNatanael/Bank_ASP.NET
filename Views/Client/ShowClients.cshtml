@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Client>
+
+    
+<form method="post">
+    <h1 class="my-2 "><b> In this Page you can manage and see your Clients</b></h1>
+    <div class="container">
+        <div class="w-110 ShowClDiv rounded-3">
+            <div class="form-group">
+
+                <a class="btn btn-primary my-3 mx-3" asp-controller="Client" asp-action="ShowClients" asp-route-iden="1">Order By Name</a>
+                <a class="btn btn-primary my-3 mx-3" asp-controller="Client" asp-action="ShowClients" asp-route-iden="2">Order by founds</a>
+                <div style=" float: right;">
+                    <input id="Find" name="dd" class=" align-content-end form-control-color rounded-3 w-50 my-3" placeholder="IdClient" />
+                    <input type="submit" value="Find" class="btn btn-primary  my-3 mx-3" style=" float: right;">
+                </div>
+
+                
+
+
+
+            </div>
+
+        </div>
+    </div>
+</form>
+
+<br />
+
+
+
+
+
+<!-- Table-->
+<table class="table table-striped my-4" style="width:100%">
+    <thead class="thead-light">
+        <tr>
+            <th>
+               CNP
+
+            </th>
+            <th>
+               Name
+            </th>
+            <th>
+                Founds
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var obj in Model)
+        {
+            <tr>
+                <td>
+                    @obj.Id
+                </td>
+                <td>
+                    @obj.Name
+                </td>
+                <td>
+                    @obj.Founds lei
+                </td>
+                
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!--
+    <div class="w-75 btn-group" role="group">
+                        <a asp-controller="Bank" asp-action="Edit" asp-route-id="@@obj.Id">
+                            Edit
+
+                        </a>
+                    </div>
+-->

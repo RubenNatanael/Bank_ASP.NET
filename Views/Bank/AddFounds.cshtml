@@ -1,0 +1,42 @@
+﻿
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Add Founds </h2>
+            <hr />
+        </div>
+        <div ></div>
+        <div class="mb-3">
+            <label>Code</label>
+            <input class="form-control" />
+            <span  class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label>Founds</label>
+            <input id="Quantity" name="Quantity" class="form-control" />
+
+        </div>
+        <div class="mb-3">
+            <label>Id Client</label>
+            <input  class="form-control" id="" />
+
+
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:150px; height:60px">Add Founds</button>
+        <a asp-controller="Bank" asp-action="Index" class="btn btn-secondary" style="width:150px">
+            Back to home page
+        </a>
+    </div>
+</form>
+<br />
+<br />
+
+<!-- Se poate valida pagina fara a o reincarca de fiecare data-->
+@section Scripts
+    {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+
+    }
+}

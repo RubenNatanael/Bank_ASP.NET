@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Client>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h1>Index Client</h1>
+
+<table class="Table table-bordered" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                Client name
+
+            </th>
+            <th>
+                Bank of the Client
+            </th>
+            <th>
+                Founds of the Client
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var obj in Model)
+        {
+            <tr>
+                <td>
+                    @obj.Name
+                </td>
+                <td>
+                    @obj.Bank
+
+                </td>
+                <td>
+                    @obj.Founds
+                    lei
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
